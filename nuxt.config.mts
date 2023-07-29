@@ -9,8 +9,5 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
-  css: ['@/assets/css/tailwind.css'],
-  typescript: {
-    typeCheck: true
-  }
+  css: ['@/assets/css/tailwind.css']  
 })
