@@ -1,7 +1,7 @@
 <template>
     <div class="w-3/4 mx-auto space-y-12">
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div class="col-span-full">                
+            <div class="col-span-full">
                 <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <div class="text-center">
                         <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"
@@ -15,7 +15,7 @@
                                 class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                 <p>Upload a file</p>
                                 <input id="file-upload" name="file-upload" type="file" class="sr-only" @change="handler">
-                            </label>                            
+                            </label>
                         </div>
                         <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 50KB</p>
                     </div>
@@ -59,9 +59,8 @@ const { firestore } = useFirebase();
 const { setQuizData } = useFirebaseMethods();
 const storage = getStorage();
 const base64 = ref('');
-const file = ref(null)
 const imageType = ref('');
-const opts = reactive(['', '', '', '']);
+let opts = reactive(['', '', '', '']);
 const answer = ref('');
 
 const handler = (event) => {
@@ -117,7 +116,11 @@ const uploadFileToFirebase = () => {
                 url: url,
                 createdTime: new Date()
             })
+        }).then(() => {
             alert('上傳成功');
+            answer.value = '';
+            base64.value = '';
+            opts = opts.fill('', 0, 4)
         })
     });
 }
