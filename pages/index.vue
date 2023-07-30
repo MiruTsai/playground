@@ -5,8 +5,7 @@
         <div class="hero-content text-center text-neutral-content">
             <div class="max-w-md">
                 <h1 class="mb-5 text-5xl font-bold">Alita's Playground</h1>
-                <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                    quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <p class="mb-5">To my beloved Alita's family member</p>
                 <div class="flex justify-around items-center">
                     <button class="btn btn-primary"><NuxtLink to="./face">人物問答</NuxtLink></button>
                     <button class="btn btn-primary">比手畫腳</button>
