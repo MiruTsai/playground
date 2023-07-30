@@ -50,8 +50,6 @@
 
 <script setup>
 import { getStorage, ref as storageRef, getDownloadURL, uploadString } from "firebase/storage";
-import { collection, doc, setDoc } from "firebase/firestore";
-
 import { useFirebase } from '../composables/useFirebase';
 import { ref } from "vue";
 import { useFirebaseMethods } from "../composables/useFirebaseMethods";
@@ -66,7 +64,7 @@ const answer = ref('');
 const handler = (event) => {
     console.log('kb', event.target.files[0]);
     if (!event.target.files[0].type.startsWith('image/')) {
-        console.log("不是圖片格式");
+        alert("不是圖片格式");
         return;
     } else {
         imageType.value = event.target.files[0].type;
@@ -129,6 +127,4 @@ const GenNonDuplicateID = () => {
     idStr += Math.random().toString(36).substr(3)
     return idStr
 }
-
-
 </script>
